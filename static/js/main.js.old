@@ -1,0 +1,65 @@
+(function(){
+    var state = {
+        "left":{
+            "file":null,
+            "cx":200,
+            "cy":50,
+            "hx":180,
+            "hy":180
+        },
+        "right":{
+            "file":null,
+            "cx":450,
+            "cy":50,
+            "hx":180,
+            "hy":180
+        }
+    };
+
+    onload = function(){
+        init();
+    }
+
+    function init(){
+        var canvas = document.getElementById('result');
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        img.src = "static/img/splatoon_fes.jpg";
+        img.onload = function(){
+            ctx.drawImage(img,0,0,960,540);
+        }
+        
+        document.getElementById('left-x').value = state.left.cx;
+        document.getElementById('left-y').value = state.left.cy;
+        document.getElementById('right-x').value = state.right.cx;
+        document.getElementById('right-y').value = state.right.cy;
+    }
+    
+    function handleEitherImage(either){
+        return function(evt){
+            var file = evt.target.files[0];
+            
+            if(!file.type.match("image.*")){
+                return false;
+            }
+
+            var reader = new FileReader();
+
+            reader.onload = (function(e){
+                var canvas = document.getElementById('result');
+                var ctx = canvas.getContext('2d');
+                var img = new Image();
+                img.src = e.target.result;
+                img.onload = function(){
+                    var s = state[either];
+                    ctx.drawImage(img,s.cx,s.cy,s.hx,s.hy);
+                }
+            });
+
+            reader.readAsDataURL(file);
+        };
+    }
+
+    document.getElementById("left-file").addEventListener('change',handleEitherImage("left"),false);
+    document.getElementById("right-file").addEventListener('change',handleEitherImage("right"),false);
+})()

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>スプラトゥーン フェス ジェネレーター</title>
+    <link rel="icon" href="static/favicon.ico" type="image/vnd.microsoft.icon" />
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/font.css" rel="stylesheet">
+    <script src="https://code.createjs.com/createjs-2015.05.21.min.js"></script>
+  </head>
+
+  <body>
+    <h1 style="font-family: paintball, ikamodoki; font-size: 4em; text-align: center" class="h1"> Splatoon フェス ジェネレーター </h1>
+
+    <div>
+        <div style="float:left; margin:5px 5px 5px 5px">   
+            <canvas id="result" width="960" height="540"></canvas><br>
+        </div>
+        
+            <a id="save-button" class="btn btn-success" style="float:left;font-family:paintball;margin:5px 5px" download>Save!</a>
+            <a id="tweet-button" class="btn btn-primary" style="float:left;font-family:paintball;margin:5px 5px">Tweet!</a>
+        <div style="overflow:auto; float:left; width: 300px;height: 500px; margin:5px 5px 5px 5px; padding:5px 5px 5px 5px">
+            お題
+            <hr>
+            <input type="text" id="title" class="form-control" />
+            X座標:<input type="number" id="title-x" class="form-control" />
+            Y座標:<input type="number" id="title-y" class="form-control" />
+            FontSize:<input type="number" id="title-font-size" class="form-control" />
+            <br>
+
+            左画像
+            <hr>
+            <input type="file" id="left-file"  class="form-control" />
+            X座標:<input type="number" id="left-x"  class="form-control" />
+            Y座標:<input type="number" id="left-y"  class="form-control" />
+            <br>
+            
+            左名前
+            <hr>
+            <input type="text" id="left-name"  class="form-control" />
+            X座標:<input type="number" id="left-name-x" class="form-control" />
+            Y座標:<input type="number" id="left-name-y" class="form-control" />
+            FontSize:<input type="number" id="left-font-size"  class="form-control" />
+            <br>
+
+            右画像
+            <hr>
+            <input type="file" id="right-file" class="form-control" />
+            X座標:<input type="number" id="right-x" class="form-control" />
+            Y座標:<input type="number" id="right-y" class="form-control" />
+            <br>
+            
+            右名前
+            <hr>
+            <input type="text" id="right-name" class="form-control" />
+            X座標:<input type="number" id="right-name-x" class="form-control" />
+            Y座標:<input type="number" id="right-name-y" class="form-control" />
+            FontSize:<input type="number" id="right-font-size" class="form-control" />
+            <br>
+            
+        </div>
+    </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+    <script src="static/js/main.js"></script>
+</html>
